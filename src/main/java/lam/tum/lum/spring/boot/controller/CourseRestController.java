@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 import java.util.List;
 
-@RequestMapping("course.api.com/v1")
+@RequestMapping("/course.api.com/v1")
 @RestController
-public class CourseRestContrroller {
+public class CourseRestController {
     @GetMapping("/courses")
     public List<Course> printList() {
         return Arrays.asList(
