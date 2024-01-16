@@ -1,7 +1,6 @@
 package lam.tum.lum.spring.boot.service;
 
 import lam.tum.lum.spring.boot.entity.Language;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,8 +8,12 @@ import java.util.Optional;
 
 @Service
 public class LanguageServiceImpl {
-    @Autowired
+
     private LanguageService languageService;
+
+    public LanguageServiceImpl(LanguageService languageService) {
+        this.languageService = languageService;
+    }
 
     public Language createLang(Language language) {
         return languageService.save(language);
@@ -31,8 +34,9 @@ public class LanguageServiceImpl {
             languageUpdate.setName(language.getName());
 
             return languageService.save(languageUpdate);
+        } else {
+            throw new RuntimeException("Update fail");
         }
-        throw new RuntimeException("Update fail");
     }
 
     public void deleteLang(long langId) {

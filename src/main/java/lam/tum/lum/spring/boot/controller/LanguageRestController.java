@@ -2,7 +2,6 @@ package lam.tum.lum.spring.boot.controller;
 
 import lam.tum.lum.spring.boot.entity.Language;
 import lam.tum.lum.spring.boot.service.LanguageServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/language.api.com/v1")
 public class LanguageRestController {
-    @Autowired
+
     LanguageServiceImpl languageServiceImpl;
 
     public LanguageRestController(LanguageServiceImpl languageServiceImpl) {
